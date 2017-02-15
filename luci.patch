@@ -1,0 +1,56 @@
+index 985d70e..f534ef0 100644
+--- build_dir/target-mipsel_uClibc-0.9.30.1/luci-0.10+svn/libs/sys/luasrc/sys.lua
++++ build_dir/target-mipsel_uClibc-0.9.30.1/luci-0.10+svn/libs/sys/luasrc/sys.lua
+@@ -763,6 +763,7 @@ function wifi.channels(iface)
+ 
+ 	if not cns or #cns == 0 then
+ 		cns = {
++			{channel =  0, mhz = 2407},
+ 			{channel =  1, mhz = 2412},
+ 			{channel =  2, mhz = 2417},
+ 			{channel =  3, mhz = 2422},
+index 046b769..c73627b 100644
+--- build_dir/target-mipsel_uClibc-0.9.30.1/luci-0.10+svn/modules/admin-full/luasrc/view/admin_network/wifi_overview.htm
++++ build_dir/target-mipsel_uClibc-0.9.30.1/luci-0.10+svn/modules/admin-full/luasrc/view/admin_network/wifi_overview.htm
+@@ -180,7 +180,7 @@ $Id$
+ 				for( var i = 0; i < st.length; i++ )
+ 				{
+ 					var iw = st[i];
+-					var is_assoc = (iw.bssid && iw.bssid != '00:00:00:00:00:00' && iw.channel);
++					var is_assoc = (iw.bssid && iw.bssid != '00:00:00:00:00:00');
+ 					var p = iw.quality;
+ 					var q = is_assoc ? p : -1;
+ 
+@@ -258,7 +258,7 @@ $Id$
+ 							dev.innerHTML = String.format(
+ 								'<strong><%:Channel%>:</strong> %s (%s GHz) | ' +
+ 								'<strong><%:Bitrate%>:</strong> %s Mb/s',
+-									iw.channel ? iw.channel : '?',
++									iw.channel,
+ 									iw.frequency ? iw.frequency : '?',
+ 									iw.bitrate ? iw.bitrate : '?'
+ 							);
+index 900071b..1432716 100644
+--- build_dir/target-mipsel_uClibc-0.9.30.1/luci-0.10+svn/modules/admin-full/luasrc/view/admin_network/wifi_status.htm
++++ build_dir/target-mipsel_uClibc-0.9.30.1/luci-0.10+svn/modules/admin-full/luasrc/view/admin_network/wifi_status.htm
+@@ -6,7 +6,7 @@
+ 		{
+ 			if (iw && (iw = iw[0]))
+ 			{
+-				var is_assoc = (iw.bssid && iw.bssid != '00:00:00:00:00:00' && iw.channel);
++				var is_assoc = (iw.bssid && iw.bssid != '00:00:00:00:00:00');
+ 				var p = iw.quality;
+ 				var q = is_assoc ? p : -1;
+ 
+index 1228fdf..4c8acce 100644
+--- build_dir/target-mipsel_uClibc-0.9.30.1/luci-0.10+svn/modules/admin-full/luasrc/view/admin_status/index.htm
++++ build_dir/target-mipsel_uClibc-0.9.30.1/luci-0.10+svn/modules/admin-full/luasrc/view/admin_status/index.htm
+@@ -290,7 +290,7 @@ $Id$
+ 					for (var nidx = 0; nidx < dev.networks.length; nidx++)
+ 					{
+ 						var net = dev.networks[nidx];
+-						var is_assoc = (net.bssid != '00:00:00:00:00:00' && net.channel);
++						var is_assoc = (net.bssid != '00:00:00:00:00:00');
+ 
+ 						var icon;
+ 						if (!is_assoc)

@@ -95,13 +95,18 @@ OpenWRT documentation and other useful links:
     patch < wpad-mini.patch
     ```
 
-10. Rebuild OpenWRT with changes
+10. Patch luci
+    ```
+    patch < luci.patch
+    ```
+
+11. Rebuild OpenWRT with changes
     ```
     make
     ```
 
-11. Flash image to router, boot, set password thus enabling ssh
+12. Flash image to router, boot, set password thus enabling ssh
 
-12. Copy/scp updated regulatory.bin to router’s /usr/lib/crda/
+13. Copy/scp updated regulatory.bin to router’s /usr/lib/crda/
 
-13. Reboot
+14. Reboot
