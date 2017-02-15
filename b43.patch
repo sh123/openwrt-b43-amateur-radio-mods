@@ -1,7 +1,6 @@
-diff --git main.c main.c
 index 64e6298..efdb940 100644
---- ./build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/main.c
-+++ ./build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/main.c
+--- build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/main.c
++++ build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/main.c
 @@ -192,6 +192,7 @@ static struct ieee80211_rate __b43_ratetable[] = {
  	.max_power		= 30,				\
  }
@@ -10,10 +9,9 @@ index 64e6298..efdb940 100644
  	CHAN4G(1, 2412, 0),
  	CHAN4G(2, 2417, 0),
  	CHAN4G(3, 2422, 0),
-diff --git phy_g.c phy_g.c
 index 8e157bc..0fba8de 100644
---- ./build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/phy_g.c
-+++ ./build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/phy_g.c
+--- build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/phy_g.c
++++ build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/phy_g.c
 @@ -56,7 +56,7 @@ static const s8 b43_tssi2dbm_g_table[] = {
  };
  
