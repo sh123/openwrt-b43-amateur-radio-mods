@@ -1,0 +1,37 @@
+diff --git main.c main.c
+index 64e6298..efdb940 100644
+--- ./build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/main.c
++++ ./build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/main.c
+@@ -192,6 +192,7 @@ static struct ieee80211_rate __b43_ratetable[] = {
+ 	.max_power		= 30,				\
+ }
+ static struct ieee80211_channel b43_2ghz_chantable[] = {
++	CHAN4G(0, 2407, 0),
+ 	CHAN4G(1, 2412, 0),
+ 	CHAN4G(2, 2417, 0),
+ 	CHAN4G(3, 2422, 0),
+diff --git phy_g.c phy_g.c
+index 8e157bc..0fba8de 100644
+--- ./build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/phy_g.c
++++ ./build_dir/linux-brcm47xx/compat-wireless-2011-12-01/drivers/net/wireless/b43/phy_g.c
+@@ -56,7 +56,7 @@ static const s8 b43_tssi2dbm_g_table[] = {
+ };
+ 
+ static const u8 b43_radio_channel_codes_bg[] = {
+-	12, 17, 22, 27,
++	7, 12, 17, 22, 27,
+ 	32, 37, 42, 47,
+ 	52, 57, 62, 67,
+ 	72, 84,
+@@ -72,9 +72,9 @@ static void b43_calc_nrssi_threshold(struct b43_wldev *dev);
+ /* Get the freq, as it has to be written to the device. */
+ static inline u16 channel2freq_bg(u8 channel)
+ {
+-	B43_WARN_ON(!(channel >= 1 && channel <= 14));
++	B43_WARN_ON(!(channel >= 0 && channel <= 14));
+ 
+-	return b43_radio_channel_codes_bg[channel - 1];
++	return b43_radio_channel_codes_bg[channel];
+ }
+ 
+ static void generate_rfatt_list(struct b43_wldev *dev,

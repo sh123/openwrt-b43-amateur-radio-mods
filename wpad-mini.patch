@@ -1,0 +1,70 @@
+diff --git src/drivers/driver_broadcom.c src/drivers/driver_broadcom.c
+index cb88543..dfbd8cc 100644
+--- ./build_dir/target-mipsel_uClibc-0.9.30.1/hostapd-wpad-mini/hostapd-20111103/src/drivers/driver_broadcom.c
++++ ./build_dir/target-mipsel_uClibc-0.9.30.1/hostapd-wpad-mini/hostapd-20111103/src/drivers/driver_broadcom.c
+@@ -419,7 +419,7 @@ static int wpa_driver_broadcom_scan(void *priv,
+ 
+ 
+ static const int frequency_list[] = { 
+-	2412, 2417, 2422, 2427, 2432, 2437, 2442,
++	2407, 2412, 2417, 2422, 2427, 2432, 2437, 2442,
+ 	2447, 2452, 2457, 2462, 2467, 2472, 2484 
+ };
+ 
+@@ -477,7 +477,7 @@ wpa_driver_broadcom_get_scan_results(void *priv)
+ 		res->res[res->num++] = r;
+ 
+ 		os_memcpy(r->bssid, &wbi->BSSID, ETH_ALEN);
+-		r->freq = frequency_list[wbi->channel - 1];
++		r->freq = frequency_list[wbi->channel];
+ 		/* get ie's */
+ 		os_memcpy(r + 1, wbi + 1, wbi->ie_length);
+ 		r->ie_len = wbi->ie_length;
+diff --git src/drivers/driver_hostap.c src/drivers/driver_hostap.c
+index 8609a55..b87af52 100644
+--- ./build_dir/target-mipsel_uClibc-0.9.30.1/hostapd-wpad-mini/hostapd-20111103/src/drivers/driver_hostap.c
++++ ./build_dir/target-mipsel_uClibc-0.9.30.1/hostapd-wpad-mini/hostapd-20111103/src/drivers/driver_hostap.c
+@@ -1046,8 +1046,8 @@ static struct hostapd_hw_modes * hostap_get_hw_feature_data(void *priv,
+ {
+ 	struct hostapd_hw_modes *mode;
+ 	int i, clen, rlen;
+-	const short chan2freq[14] = {
+-		2412, 2417, 2422, 2427, 2432, 2437, 2442,
++	const short chan2freq[15] = {
++		2407, 2412, 2417, 2422, 2427, 2432, 2437, 2442,
+ 		2447, 2452, 2457, 2462, 2467, 2472, 2484
+ 	};
+ 
+@@ -1059,7 +1059,7 @@ static struct hostapd_hw_modes * hostap_get_hw_feature_data(void *priv,
+ 	*flags = 0;
+ 
+ 	mode->mode = HOSTAPD_MODE_IEEE80211B;
+-	mode->num_channels = 14;
++	mode->num_channels = 15;
+ 	mode->num_rates = 4;
+ 
+ 	clen = mode->num_channels * sizeof(struct hostapd_channel_data);
+@@ -1074,8 +1074,8 @@ static struct hostapd_hw_modes * hostap_get_hw_feature_data(void *priv,
+ 		return NULL;
+ 	}
+ 
+-	for (i = 0; i < 14; i++) {
+-		mode->channels[i].chan = i + 1;
++	for (i = 0; i < 15; i++) {
++		mode->channels[i].chan = i;
+ 		mode->channels[i].freq = chan2freq[i];
+ 		/* TODO: Get allowed channel list from the driver */
+ 		if (i >= 11)
+diff --git wpa_supplicant/ap.c wpa_supplicant/ap.c
+index d08fc7c..1e5edb4 100644
+--- ./build_dir/target-mipsel_uClibc-0.9.30.1/hostapd-wpad-mini/hostapd-20111103/wpa_supplicant/ap.c
++++ ./build_dir/target-mipsel_uClibc-0.9.30.1/hostapd-wpad-mini/hostapd-20111103/wpa_supplicant/ap.c
+@@ -65,7 +65,7 @@ static int wpa_supplicant_conf_ap(struct wpa_supplicant *wpa_s,
+ 		/* default channel 11 */
+ 		conf->hw_mode = HOSTAPD_MODE_IEEE80211G;
+ 		conf->channel = 11;
+-	} else if (ssid->frequency >= 2412 && ssid->frequency <= 2472) {
++	} else if (ssid->frequency >= 2407 && ssid->frequency <= 2472) {
+ 		conf->hw_mode = HOSTAPD_MODE_IEEE80211G;
+ 		conf->channel = (ssid->frequency - 2407) / 5;
+ 	} else if ((ssid->frequency >= 5180 && ssid->frequency <= 5240) ||

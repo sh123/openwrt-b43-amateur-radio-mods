@@ -1,0 +1,12 @@
+diff --git db.txt db.txt
+index 05108e0..0d50ae3 100644
+--- db.txt
++++ db.txt
+@@ -1,6 +1,6 @@
+ # This is the world regulatory domain
+ country 00:
+-	(2402 - 2472 @ 40), (20)
++	(2302 - 2472 @ 40), (30)
+ 	# Channel 12 - 13.
+ 	(2457 - 2482 @ 20), (20), NO-IR, AUTO-BW
+ 	# Channel 14. Only JP enables this and for 802.11b only
