@@ -1,4 +1,4 @@
-# openwrt-b43-amateur-radio-mods
+# OpenWRT backfire 10.03 b43 drivers mods
 
 ## Introduction
 **This modification might be illegal in your country. You can use
