@@ -14,7 +14,7 @@ Mesh network frameworks.
 By using legacy 11 MHz channel width mode and work on channel 0, 2407 MHz 
 router will be still within ISM band, it won’t be visible by causal access 
 points and at the same it will be within 13 cm amateur band, thus can be used 
-legally with directional antennas and higher E.I.R.P.
+legally with directional antennas and higher E.I.R.P. (maximum allowed is mostly 100 mW).
 
 ## Userful read
 OpenWRT documentation and other useful links:
