@@ -1,4 +1,4 @@
-# OpenWRT backfire 10.03 b43 drivers mods
+# OpenWRT backfire 10.03 b43 (wrt54g) drivers mods
 
 ## Introduction
 **This modification might be illegal in your country. You can use
@@ -6,10 +6,10 @@ router with this modification only if you have amateur radio license. You
 cannot use encryption and you need to make sure your callsign is present 
 inside packets transmitted**
 
-The goal is to modify OpenWRT Backfire 10.03 to make router work outside of 
-ISM standard WiFi channels on 13 cm amateur band (channels 0 and probably
--1, -2 if possible) and try to setup a link between two routers using one of 
-Mesh network frameworks.
+The goal is to modify OpenWRT Backfire 10.03 broadcom b43 (Linksys WRT54G(LS) drivers) 
+to make router work outside of ISM standard WiFi channels on 13 cm amateur band 
+(channels 0 and probably -1, -2 if possible) and try to setup a link between two 
+routers using one of Mesh network frameworks.
 
 By using legacy 11 MHz channel width mode and work on channel 0, 2407 MHz 
 router will be still within ISM band, it won’t be visible by causal access 
