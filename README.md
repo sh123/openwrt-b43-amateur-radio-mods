@@ -110,3 +110,5 @@ OpenWRT documentation and other useful links:
 13. Copy/scp updated regulatory.bin to router’s /usr/lib/crda/
 
 14. Reboot
+
+15. Now router can be configured for channel 0
