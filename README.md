@@ -67,9 +67,11 @@ OpenWRT documentation and other useful links:
     ```
     make menuconfig
     ```
-    Target System - Broadcom BCM947xx/953xx
-    Target Profile - Broadcom BCM43xx WiFi
-    Select additional packages, such as batman-adv, luci, batmand, olsr
+    Target System - Broadcom BCM947xx/953xx.
+    
+    Target Profile - Broadcom BCM43xx WiFi.
+    
+    Select additional packages, such as batman-adv, luci, batmand, olsr and required plugins. Make sure image is smaller than 3 MB, otherwise build some packages as ipk modules by selecting them as [M] and install them later manually.
 
 6. Build OpenWRT
     ```
