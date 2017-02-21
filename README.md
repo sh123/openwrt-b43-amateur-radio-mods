@@ -4,7 +4,7 @@
 **This modification might be illegal in your country. You can use
 router with this modification only if you have amateur radio license. You
 cannot use encryption and you need to make sure your callsign is present 
-inside packets transmitted**
+inside packets transmitted.**
 
 The goal is to modify OpenWRT Backfire 10.03 broadcom b43 (Linksys WRT54G(LS) drivers) 
 to make router work outside of ISM standard WiFi channels on 13 cm amateur band 
@@ -19,6 +19,7 @@ legally with directional antennas and higher E.I.R.P. (maximum allowed is mostly
 ## Userful read
 OpenWRT documentation and other useful links:
 
+* IARU 1 13cm band plan - <https://iaru-r1.org/index.php/spectrum-and-band-plans/uhf/13-centimeter>
 * WRT54G – <https://wiki.openwrt.org/toh/linksys/wrt54g>
 * Build system installation – <https://wiki.openwrt.org/doc/howto/buildroot.exigence>
 * Broadband Hamnet – <http://www.broadband-hamnet.org/>
