@@ -19,10 +19,11 @@ legally with directional antennas and higher E.I.R.P. (maximum allowed is mostly
 ## Userful read
 OpenWRT documentation and other useful links:
 
-* IARU 1 13cm band plan - <https://iaru-r1.org/index.php/spectrum-and-band-plans/uhf/13-centimeter>
+* IARU 1 13cm band plan - <https://www.iaru-r1.org/wp-content/uploads/2020/03/UHF-Bandplan.pdf>
 * WRT54G – <https://wiki.openwrt.org/toh/linksys/wrt54g>
 * Build system installation – <https://wiki.openwrt.org/doc/howto/buildroot.exigence>
 * Broadband Hamnet – <http://www.broadband-hamnet.org/>
+* Hamnet map and nodes - <https://hamnetdb.net>
 * OLSR mesh – <http://www.olsr.org/>
 * Open mesh – <http://www.open-mesh.com>
 * Bad flash recovery – <http://www.dd-wrt.com/wiki/index.php/Recover_from_a_Bad_Flash>
